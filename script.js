@@ -30,9 +30,9 @@ const note1 = "C4"; // the note played when the pointer goes down
 const note2 = "B4";
 const note3 = "D4";
 
-const shape1 = createShape("greenCircle");
-const shape2 = createShape("pinkCircle");
-const shape3 = createShape("purpleCircle");
+const shape1 = createShape("purpleCircle");
+const shape2 = createShape("greenCircle");
+const shape3 = createShape("pinkCircle");
 
 // ---------- State ----------
 // State variables are the parts of your program that change over time.
