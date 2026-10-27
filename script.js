@@ -86,14 +86,24 @@ function pointerMove(event) {
   lastX = normX;
   lastY = normY;
   lastTime = now;
-  console.log(speed);
+  console.log(speed + " speed!");
 
   speeds.push(speed);
   console.log(speeds.length);
 
-  if (speeds.length > 10) {
-    speeds.shift();
-  }
+  setTimeout(forgetOldest, 500);
+  useAverage();
+
+  //if (speeds.length > 10) {
+  //speeds.shift();
+}
+
+function forgetOldest() {
+  speeds.shift();
+  useAverage();
+}
+
+function useAverage() {
   let total = 0;
   for (let i = 0; i < speeds.length; i++) {
     total = total + speeds[i];
@@ -103,26 +113,8 @@ function pointerMove(event) {
     average = total / speeds.length;
   }
   synth.detune.value = average * 1200;
-  console.log(average);
+  console.log(average + " average ");
 }
-
-//setTimeout(forgetOldest, 500);
-//useAverage();
-
-//function forgetOldest() {
-// speeds.shift();
-// useAverage();
-//
-
-//function useAverage() {
-//let total = 0;
-//for (let i = 0; i < speeds.length; i++) {
-// total = total + speeds[i];
-//}
-//let average = 0;
-//if (speeds.length > 0) {
-//  average = total / speeds.length;
-//}
 
 //}
 // ---------- Setup ----------
