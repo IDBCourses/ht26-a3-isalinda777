@@ -127,15 +127,15 @@ function setup() {
 
   shape1.setSize(200);
   shape1.setColour(270, 60, 30);
-  shape1.setPosition(0.15, 0.4);
+  shape1.setPosition(0.15, 0.4); // purple circle
 
   shape2.setSize(220);
   shape2.setColour(111, 30, 30);
-  shape2.setPosition(0.5, 0.8);
+  shape2.setPosition(0.5, 0.8); //green circle
 
   shape3.setSize(210);
   shape3.setColour(333, 80, 45);
-  shape3.setPosition(0.8, 0.2);
+  shape3.setPosition(0.8, 0.2); //pink circle
 
   // Put your event listener code here
   window.addEventListener("pointerdown", pointerDown);
