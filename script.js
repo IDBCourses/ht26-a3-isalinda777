@@ -24,17 +24,15 @@
 import { createShape } from "./shape.js";
 
 // ---------- Settings ----------
-// Settings variables should contain all of the "fixed" parts of your programs
-// For example: which notes you can play, how fast things move, the tempo.
 
 const notes = {
   greenNote: "A4",
-  pinkNote: "D4",
-  purpleNote: "C4",
-  yellowNote: "G4",
+  pinkNote: "C4",
+  purpleNote: "D4",
+  yellowNote: "E4",
 };
 
-const shape1 = createShape("greenCircle"); //should this be here or in setup?
+const shape1 = createShape("greenCircle");
 const shape2 = createShape("pinkCircle");
 const shape3 = createShape("purpleCircle");
 const shape4 = createShape("yellowCircle");
@@ -42,7 +40,6 @@ const shape4 = createShape("yellowCircle");
 // ---------- State ----------
 // State variables are the parts of your program that change over time.
 // For example: where the pointer is, how fast it's moving, or whether a drone is on.
-let playing = false;
 let lastX = 0;
 let lastY = 0;
 let lastTime = 0;
@@ -52,9 +49,9 @@ let speeds = [];
 // Make the instruments and plug them into the speakers.
 const synth = new Tone.Synth().toDestination();
 // ---------- Update ----------
-// Update the state. This is called every 100ms.
+//Update the state. This is called every 100ms.
 //function update() {
-//setTimeout(update, 100); // call update() again in 100 milliseconds
+//  setTimeout(update, 100); // call update() again in 100 milliseconds
 //}
 
 // ---------- Use ----------
@@ -67,20 +64,16 @@ const synth = new Tone.Synth().toDestination();
 // Runs every time the pointer goes down: a click, a tap or a pen touch.
 function pointerDown(event) {
   Tone.start(); // browsers only allow sound after the player has pressed something
-  console.log("Pointer down at", event.clientX, event.clientY);
 }
 function enterGreen() {
   synth.triggerAttack(notes.greenNote);
-  console.log(" Enter green ");
 }
 
 function enterPink() {
   synth.triggerAttack(notes.pinkNote);
-  console.log(" Enter pink ");
 }
 function enterPurple() {
   synth.triggerAttack(notes.purpleNote);
-  console.log(" Enter purple ");
 }
 function enterYellow() {
   synth.triggerAttack(notes.yellowNote);
@@ -102,16 +95,11 @@ function pointerMove(event) {
   lastX = normX;
   lastY = normY;
   lastTime = now;
-  console.log(speed + " speed!");
 
   speeds.push(speed);
-  console.log(speeds.length);
 
   setTimeout(forgetOldest, 500);
   useAverage();
-
-  //if (speeds.length > 10) {
-  //speeds.shift();
 }
 
 function forgetOldest() {
@@ -128,8 +116,7 @@ function useAverage() {
   if (speeds.length > 0) {
     average = total / speeds.length;
   }
-  synth.detune.value = average * 300;
-  console.log(average + " average ");
+  synth.detune.value = average * 500;
 }
 
 //}
@@ -140,22 +127,22 @@ function setup() {
   //use(); // start the use loop
 
   shape1.setSize(245);
-  shape1.setColour(111, 30, 30);
-  shape1.setPosition(0.5, 0.8); //green circle
+  shape1.setColour(111, 30, 70);
+  shape1.setPosition(0.1, 0.55); //green circle
 
   shape2.setSize(245);
   shape2.setColour(333, 80, 45);
   shape2.setPosition(0.8, 0.2); //pink circle
 
-  shape3.setSize(250);
+  shape3.setSize(245);
   shape3.setColour(270, 60, 30);
-  shape3.setPosition(0.15, 0.4); // purple circle
+  shape3.setPosition(0.3, 0.12); // purple circle
 
-  shape4.setSize(250);
+  shape4.setSize(245);
   shape4.setColour(50, 90, 60);
-  shape4.setPosition(0.3, 0.7); // yellow circle
+  shape4.setPosition(0.557, 0.566); // yellow circle
 
-  // Put your event listener code here
+  // Event listener code
   window.addEventListener("pointerdown", pointerDown);
   window.addEventListener("pointermove", pointerMove);
   shape1.element.addEventListener("pointerenter", enterGreen);
