@@ -25,7 +25,7 @@ import { createShape } from "./shape.js";
 
 // ---------- Settings ----------
 
-const notes = {
+const notes = { // One place for all the notes, in case they're changed (Object, each note is a property)
   greenNote: "A4",
   pinkNote: "C4",
   purpleNote: "D4",
@@ -44,7 +44,7 @@ let lastX = 0;
 let lastY = 0;
 let lastTime = 0;
 
-let speeds = [];
+let speeds = []; // Speeds array, keeps the speeds recorded
 // ---------- Sound ----------
 // Make the instruments and plug them into the speakers.
 const synth = new Tone.Synth().toDestination();
@@ -66,7 +66,7 @@ function pointerDown(event) {
   Tone.start(); // browsers only allow sound after the player has pressed something
 }
 function enterGreen() {
-  synth.triggerAttack(notes.greenNote);
+  synth.triggerAttack(notes.greenNote); //Calls the note in the 'notes' object
 }
 
 function enterPink() {
