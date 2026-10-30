@@ -1,21 +1,25 @@
 # My instrument
 
-**Play it here:** <!-- Paste your GitHub Pages link here, e.g. https://idbcourses.github.io/your-repo-name/ -->
+**Play it here:** https://idbcourses.github.io/ht26-a3-isalinda777/
 
-**Name:** <!-- Your name and MAU ID -->
+**Name:** Isabella Cuartas Nobre / at1021
 
-<!-- One or two sentences: what kind of instrument is it, and what is it like to play? -->
+A pointer played instrument with four colored circles, each of them plays their own note. Move inside a circle and the note bends upward the faster the pointer is moved, then it slides back down when the pointer slows down.
 
 ## How to play
 
-<!-- Fill in the table with a row for everything the player can do with the pointer: clicking, moving slowly or fast, moving in circles, holding still... Say what happens to the sound and to the shapes. If you added keys, give them rows too. -->
+| When you...                 | The sound...                                        |
+| --------------------------- | --------------------------------------------------- |
+| Click anywhere              | Switches sound on (needed only once)                |
+| Move into the green circle  | Plays C3                                            |
+| Move into the purple circle | Plays D4                                            |
+| Move into the yellow circle | Plays A4                                            |
+| Move into the pink circle   | Plays G3                                            |
+| Move fast within a circle   | The note bends higher the fater you move            |
+| Slow down or hold still     | Goes back to the circle's note within half a second |
+| Leave a circle              | Silence                                             |
 
-| When you...  | The sound...                         | The shapes... |
-| ------------ | ------------------------------------ | ------------- |
-| Click or tap | Plays a C4 (the example: replace it) | Nothing yet   |
-|              |                                      |               |
-
-<!-- Anything else a player needs to know: how to get started, a good thing to try first. -->
+To activate the instrument you should click the mouse/trackpad anywhere on the tab, then you can start moving the pointer into the circles. Within the circles you can move faster to bend the note, but you can also move between the circles fast to create a little melody.
 
 ---
 
