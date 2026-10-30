@@ -82,7 +82,8 @@ function pointerMove(event) {
   let now = Date.now();
   let distance = Math.hypot(normX - lastX, normY - lastY); // straight-line distance since the last move (Pythagoras)
   let seconds = (now - lastTime) / 1000; // time since the last move, from milliseconds to seconds
-  if (seconds === 0) { // Comment
+  if (seconds === 0) {
+    // Comment
     return;
   }
   let speed = distance / seconds; // screens per second
@@ -108,7 +109,8 @@ function useAverage() {
     total = total + speeds[i];
   }
   let average = 0;
-  if (speeds.length > 0) { // Comment
+  if (speeds.length > 0) {
+    // Comment
     average = total / speeds.length;
   }
   synth.detune.value = average * 200; // Sets the pitch based on the average of speeds
@@ -140,7 +142,7 @@ function setup() {
   speedLight.setPosition(0.5, 0.5);
   speedLight.setColour(240, 90, 55); // Starting colour for the speed colour circle
 
-  // Event listener code // Comment
+  // Event listener code //Comment
   window.addEventListener("pointerdown", pointerDown);
   window.addEventListener("pointermove", pointerMove);
   shape1.element.addEventListener("pointerenter", enterGreen);
