@@ -8,18 +8,18 @@ A pointer played instrument with four colored circles, each of them plays their 
 
 ## How to play
 
-| When you...                 | The sound...                                        |
-| --------------------------- | --------------------------------------------------- |
-| Click anywhere              | Switches sound on (needed only once)                |
-| Move into the green circle  | Plays C3                                            |
-| Move into the purple circle | Plays D4                                            |
-| Move into the yellow circle | Plays A4                                            |
-| Move into the pink circle   | Plays G3                                            |
-| Move fast within a circle   | The note bends higher the fater you move            |
-| Slow down or hold still     | Goes back to the circle's note within half a second |
-| Leave a circle              | Silence                                             |
+| When you...                 | The sound...                                      | The shapes...                              |
+| --------------------------- | ------------------------------------------------- | ------------------------------------------ |
+| Click anywhere              | Switches sound on (needed only once)              | Nothing changes                            |
+| Move into the green circle  | Plays C3                                          | -                                          |
+| Move into the purple circle | Plays D4                                          | -                                          |
+| Move into the yellow circle | Plays A4                                          | -                                          |
+| Move into the pink circle   | Plays G3                                          | -                                          |
+| Move fast within a circle   | The note bends higher the faster you move         | The small circle changes colour (anywhere) |
+| Slow down or hold still     | Goes back to the circle's note within 0.5 seconds | The small circle changes back              |
+| Leave a circle              | Silence                                           | -                                          |
 
-To activate the instrument you should click the mouse/trackpad anywhere on the tab, then you can start moving the pointer into the circles. Within the circles you can move faster to bend the note, but you can also move between the circles fast to create a little melody.
+To activate the instrument you should click the mouse/trackpad anywhere on the tab, then you can start moving the pointer into the circles. Within the circles you can move faster to bend the note, but you can also move between the circles fast to create a little melody. There are no keyboard controls, it's played only with the pointer.
 
 ---
 
