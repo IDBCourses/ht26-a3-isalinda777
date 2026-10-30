@@ -139,7 +139,7 @@ function setup() {
   shape4.setPosition(0.6, 0.6); // yellow circle
 
   speedLight.setSize(80);
-  speedLight.setPosition(0.5, 0.5);
+  speedLight.setPosition(0.46, 0.48);
   speedLight.setColour(240, 90, 55); // Starting colour for the speed colour circle
 
   // Event listener code //Comment
