@@ -5,16 +5,8 @@
  *   settings — the "fixed" parts of your program
  *   state    — the parts of your program that change over time
  *   sound    — the Tone.js instruments and effects
- *   update   — updates the state every 100ms, if necessary
- *   use      — uses the state to make sound and shapes every 100ms, if necessary
  *   controls — what happens when the player uses the pointer
  *   setup    — starts everything
- *
- * The pointer events change the state. update() and use() each run every
- * 100ms, in a loop:
- *   1. update: change the state, e.g. based on time or on the pointer's movement
- *   2. use:    make sound and move shapes, based on the state
- *
  * Shapes come from shape.js: createShape() makes one, and its methods
  * (setPosition, setSize, setColour ...) change it.
  *
