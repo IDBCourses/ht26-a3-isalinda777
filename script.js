@@ -40,13 +40,14 @@ const shape4 = createShape("yellowCircle");
 const speedLight = createShape("speedLight");
 
 // ---------- State ----------
-let lastX = 0; // Comment
-let lastY = 0; // Comment
-let lastTime = 0; // Comment
+//Where and when the pointer was last time, used to calculate speed
+let lastX = 0;
+let lastY = 0;
+let lastTime = 0;
 
 let speeds = []; // Speeds array, keeps the speeds recorded
 // ---------- Sound ----------
-const synth = new Tone.Synth().toDestination(); // Comment
+const synth = new Tone.Synth().toDestination(); // One synth that connects to the speaker, plays one note at a time
 
 // ---------- Controls (Event Handlers) ----------
 function pointerDown(event) {
@@ -55,7 +56,7 @@ function pointerDown(event) {
 }
 function enterGreen() {
   //Runs when the pointer enters the green circle (in setup): It plays its respective note
-  synth.triggerAttack(notes.greenNote); //Calls the note in the 'notes' object
+  synth.triggerAttack(notes.greenNote); //Gets the note from the 'notes' object and plays it
 }
 
 function enterPink() {
@@ -83,34 +84,35 @@ function pointerMove(event) {
   let distance = Math.hypot(normX - lastX, normY - lastY); // straight-line distance since the last move (Pythagoras)
   let seconds = (now - lastTime) / 1000; // time since the last move, from milliseconds to seconds
   if (seconds === 0) {
-    // Comment
+    // If two moves were recorded within the same millisecond then no time has passed, skip this move and return
     return;
   }
   let speed = distance / seconds; // screens per second
-  lastX = normX; // Comment
-  lastY = normY; // Comment
+  //Save and remember this position and time, so the next move can be compared with it
+  lastX = normX;
+  lastY = normY;
   lastTime = now;
   speeds.push(speed); // Add the newest speed into the array
 
-  setTimeout(forgetOldest, 500); // Forget the speeds recorded more than half a second ago
+  setTimeout(forgetOldest, 500); // Forget the speeds that have been recorded for more than half a second
   useAverage();
 }
 
 function forgetOldest() {
-  // Runs every half a second in pointerMove: takes out the speeds from the array
+  // Runs half a second after a speed is recorded (in pointerMove): it removes the oldest speed and recalculates the average
   speeds.shift();
   useAverage();
 }
 
 function useAverage() {
-  //Runs when the pointer moves, as the speeds are being recorded: Makes the average of the speeds in the speeds array
+  //Runs when a speed is recorded (when pointer moves), and when a speed is forgotten (forgetOldest): Averages the speeds, sets the pitch, and the colour of the small circle
   let total = 0;
   for (let i = 0; i < speeds.length; i++) {
     total = total + speeds[i];
   }
   let average = 0;
   if (speeds.length > 0) {
-    // Comment
+    // Only divide if there are speeds in the array, when the array is empty the average is always 0 (and not NaN)
     average = total / speeds.length;
   }
   synth.detune.value = average * 200; // Sets the pitch based on the average of speeds
@@ -142,9 +144,11 @@ function setup() {
   speedLight.setPosition(0.46, 0.48);
   speedLight.setColour(240, 90, 55); // Starting colour for the speed colour circle
 
-  // Event listener code //Comment
+  // Event listener code, listens to the whole page
   window.addEventListener("pointerdown", pointerDown);
   window.addEventListener("pointermove", pointerMove);
+
+  //Each circle plays its own note when the pointer enters them, and goes silent when the pointer leaves
   shape1.element.addEventListener("pointerenter", enterGreen);
   shape1.element.addEventListener("pointerleave", pointerLeave);
 
